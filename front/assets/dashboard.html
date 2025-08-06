@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayFix - Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+
+ <div class="app-layout"> 
+
+    <!-- SECCION DEL SIDEBAR, TODO EL MENU LATERAL IZQUIERDO -->
+
+    <aside class="sidebar" id="sidebar" aria-label="Menú principal">
+      <div class="brand">
+        <img src="./img/PlayFixSinFondoBlanco.png" alt="PlayFix" class="brand-logo" />
+        <button id="btnToggle" class="hamburger" aria-label="Abrir menú">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <nav class="nav" role="navigation" aria-label="Secciones">
+        <ul class="nav-list" id="navList">
+          <li class="nav-item" tabindex="0" role="button" data-module="dashboard" aria-current="page">
+            <span class="nav-icon">🏠</span><span class="nav-text">dashboard</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="usuarios">
+            <span class="nav-icon">👤</span><span class="nav-text">usuarios</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="clientes">
+            <span class="nav-icon">👥</span><span class="nav-text">clientes</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="fabricantes">
+            <span class="nav-icon">🏭</span><span class="nav-text">fabricantes</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="referencias">
+            <span class="nav-icon">🔖</span><span class="nav-text">referencias</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="inventario">
+            <span class="nav-icon">📦</span><span class="nav-text">inventario</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="ordenes">
+            <span class="nav-icon">🧾</span><span class="nav-text">ordenes</span>
+          </li>
+          <li class="nav-item" tabindex="0" role="button" data-module="reportes">
+            <span class="nav-icon">📈</span><span class="nav-text">reportes</span>
+          </li>
+        </ul>
+      </nav>
+    
+    
+      <div class="sidebar-footer">
+        <button class="btn-logout">Cerrar sesión</button>
+      </div>
+    </aside>
+    
+    
+     <!-- TODO EL CONTENIDO PRINCIPAL -->
+    
+    <div class="content-area" id="contentArea" role="main">
+        
+    <!-- BARRA SUPERIOR -->
+    
+    <header class="topbar">
+        <div class="topbar-left">
+          <button id="btnToggleTop" class="hamburger top" aria-label="Mostrar u ocultar menú">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+    
+          <h2 class="page-title" id="pageTitle">Dashboard</h2>
+        </div>
+        <div class="topbar-right">
+          <div class="user-bubble" aria-hidden="false"> PF </div>
+        </div>
+    </header>
+    
+    <!-- PANELES DINAMICOS -->
+    <section class="panels" id="panels">  
+            <!-- CONTENIDO POR DEFECTO CARGADO POR JS -->  
+             
+    </section>
+    
+        </div>
+    </div>
+
+
+    
+    
+    
+    <script src="./assets/js/dashboard.js" defer></script>
+            
+</body>
+</html>
