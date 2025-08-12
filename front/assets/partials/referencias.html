@@ -3,33 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/referencias.css">
     <title>PlayFix Referencias</title>
 </head>
 <body>
 
-    <!-- referencias.html -->
-<section class="module">
-  <h2>Gestión de Referencias</h2>
-  <div class="actions">
-    <button>Agregar Referencia</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar referencia...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Código</th>
-        <th>Descripción</th>
-        <th>Fabricante</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irán las referencias dinámicamente -->
-    </tbody>
-  </table>
-</section>
+  <section class="referencias">
+        <header class="referencias-header">
+            <h1 class="titulo-seccion">Gestión de Referencias</h1>
+        </header>
+
+        <!-- Formulario de creación de referencia -->
+        <form class="form-referencia" action="#" method="post">
+            <div class="form-grupo">
+                <label for="nombre_referencia">Referencia de Dispositivo:</label>
+                <input type="text" id="nombre_referencia" name="nombre_referencia" class="input-text" required>
+            </div>
+
+            <div class="form-boton">
+                <button type="submit" class="btn-crear">Crear Referencia</button>
+            </div>
+        </form>
+
+        <!-- Tabla de referencias -->
+        <div class="tabla-referencias-container">
+            <table class="tabla-referencias">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Referencia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo temporal -->
+                    <tr>
+                        <td>1</td>
+                        <td>PDA-X100</td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Aquí se insertarán dinámicamente los datos desde la BD -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     
 </body>
 </html>

@@ -3,32 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/ordenes.css">
     <title>PlayFix Ordenes</title>
 </head>
 <body>
 
-    <!-- ordenes.html -->
-<section class="module">
-  <h2>Órdenes de Reparación</h2>
-  <div class="actions">
-    <button>Agregar Orden</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar orden...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Estado</th>
-        <th>Fecha Creación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irán las órdenes dinámicamente -->
-    </tbody>
-  </table>
+  <section class="ordenes-reparacion">
+    <h2 class="titulo-seccion">Órdenes de Reparación</h2>
+
+    <!-- Formulario de creación de orden -->
+    <form class="form-orden">
+        <div class="form-grupo">
+            <label for="numero-serie">Número de Serie:</label>
+            <input type="text" id="numero-serie" name="numero-serie" class="input-text">
+        </div>
+
+        <div class="form-grupo">
+            <label for="id-usuario">Usuario:</label>
+            <select id="id-usuario" name="id-usuario" class="input-select">
+                <option value="">Seleccione un usuario</option>
+                <!-- Aquí se llenará dinámicamente desde la base de datos -->
+            </select>
+        </div>
+
+        <div class="form-grupo">
+            <label for="id-cliente">Cliente:</label>
+            <select id="id-cliente" name="id-cliente" class="input-select">
+                <option value="">Seleccione un cliente</option>
+                <!-- Aquí se llenará dinámicamente desde la base de datos -->
+            </select>
+        </div>
+
+        <div class="form-grupo">
+            <label for="id-referencia">Referencia:</label>
+            <select id="id-referencia" name="id-referencia" class="input-select">
+                <option value="">Seleccione una referencia</option>
+                <!-- Aquí se llenará dinámicamente desde la base de datos -->
+            </select>
+        </div>
+
+        <div class="form-grupo">
+            <label for="id-estado">Estado:</label>
+            <select id="id-estado" name="id-estado" class="input-select">
+                <option value="">Seleccione un estado</option>
+                <!-- Aquí se llenará dinámicamente desde la base de datos -->
+            </select>
+        </div>
+
+        <div class="form-grupo">
+            <label for="fecha-ingreso">Fecha de Ingreso:</label>
+            <input type="date" id="fecha-ingreso" name="fecha-ingreso" class="input-date">
+        </div>
+
+        <div class="form-grupo">
+            <label for="fecha-cotizacion">Fecha de Cotización:</label>
+            <input type="date" id="fecha-cotizacion" name="fecha-cotizacion" class="input-date">
+        </div>
+
+        <div class="form-grupo">
+            <label for="fecha-aprobacion">Fecha de Aprobación:</label>
+            <input type="date" id="fecha-aprobacion" name="fecha-aprobacion" class="input-date">
+        </div>
+
+        <div class="form-grupo">
+            <label for="fecha-finalizacion">Fecha de Finalización:</label>
+            <input type="date" id="fecha-finalizacion" name="fecha-finalizacion" class="input-date">
+        </div>
+
+        <div class="form-grupo">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones" class="input-textarea"></textarea>
+        </div>
+
+        <div class="form-grupo">
+            <button type="submit" class="btn-crear">Crear Orden de Reparación</button>
+        </div>
+    </form>
+
+    <!-- Tabla de órdenes -->
+    <div class="tabla-ordenes">
+        <table class="tabla-crud">
+            <thead>
+                <tr>
+                    <th>ID Orden</th>
+                    <th>Número Serie</th>
+                    <th>ID Usuario</th>
+                    <th>ID Cliente</th>
+                    <th>ID Referencia</th>
+                    <th>ID Estado</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Cotización</th>
+                    <th>Fecha Aprobación</th>
+                    <th>Fecha Finalización</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ejemplo temporal -->
+                <tr>
+                    <td>1</td>
+                    <td>ABC12345</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>En Proceso</td>
+                    <td>2025-08-11</td>
+                    <td>2025-08-15</td>
+                    <td>2025-08-20</td>
+                    <td>2025-08-25</td>
+                    <td>
+                        <button class="btn-editar">Editar</button>
+                        <button class="btn-eliminar">Eliminar</button>
+                    </td>
+                </tr>
+                <!-- Aquí se insertarán dinámicamente las órdenes desde la base de datos -->
+            </tbody>
+        </table>
+    </div>
 </section>
     
 </body>

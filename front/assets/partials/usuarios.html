@@ -3,32 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/usuarios.css">
     <title>PlayFix Usuarios</title>
 </head>
 <body>
 
-    <section class="module">
-  <h2>Gestión de Usuarios</h2>
-  <div class="actions">
-    <button>Agregar Usuario</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar usuario...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Rol</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irán los usuarios dinámicamente -->
-    </tbody>
-  </table>
-</section>
+  <body>
+
+    <section class="usuarios">
+        <header class="usuarios-header">
+            <h1 class="titulo-seccion">Gestión de Usuarios</h1>
+        </header>
+
+        <!-- Formulario de creación de usuario -->
+        <form class="form-usuario" action="#" method="post">
+            <div class="form-grupo">
+                <label for="nombre_usuario">Nombre:</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" class="input-text" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="correo_usuario">Correo:</label>
+                <input type="email" id="correo_usuario" name="correo_usuario" class="input-text" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="clave_usuario">Clave:</label>
+                <input type="password" id="clave_usuario" name="clave_usuario" class="input-text" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="rol_usuario">Rol:</label>
+                <select id="rol_usuario" name="rol_usuario" class="select-rol" required>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Tecnico">Técnico</option>
+                    <option value="Logistica">Logística</option>
+                    <option value="Visitante">Visitante</option>
+                </select>
+            </div>
+
+            <div class="form-boton">
+                <button type="submit" class="btn-crear">Crear Usuario</button>
+            </div>
+        </form>
+
+        <!-- Tabla de usuarios -->
+        <div class="tabla-usuarios-container">
+            <table class="tabla-usuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo temporal (estos datos vendrán de la base de datos) -->
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Pérez</td>
+                        <td>juan@example.com</td>
+                        <td>Administrador</td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Aquí se agregarán dinámicamente los registros desde la BD -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 
 </body>
 </html>

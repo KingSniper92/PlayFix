@@ -1,0 +1,228 @@
+/* ============================
+   VARIABLES GLOBALES
+============================ */
+:root {
+    --color-primario: #007bff;
+    --color-secundario: #6c757d;
+    --color-exito: #28a745;
+    --color-peligro: #dc3545;
+    --color-fondo: #f4f6f9;
+    --color-texto: #333;
+    --borde-radio: 8px;
+    --sombra: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --fuente: 'Rubik', sans-serif;
+}
+
+/* ============================
+   ESTILOS GENERALES
+============================ */
+body {
+    font-family: var(--fuente);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================
+   SECCIÓN REPORTES
+============================ */
+.reportes-section {
+    padding: 20px;
+}
+
+.titulo-reportes {
+    background-color: var(--color-primario);
+    padding: 15px;
+    border-radius: var(--borde-radio);
+    color: #fff;
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+/* ============================
+   FORMULARIO REPORTES
+============================ */
+.form-reportes {
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+}
+
+.campo-formulario {
+    margin-bottom: 15px;
+}
+
+.label-form {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-form {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-secundario);
+    border-radius: var(--borde-radio);
+    font-size: 1rem;
+}
+
+/* ============================
+   CHECKBOXES
+============================ */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ============================
+   BOTÓN GENERAR
+============================ */
+.btn-generar {
+    background-color: var(--color-primario);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-generar:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

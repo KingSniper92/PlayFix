@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mapa de módulos -> archivo parcial y título
   const modules = {
-    dashboard: { title: 'Dashboard', file: './assets/partials/dashboard.html' },
-    usuarios: { title: 'Usuarios', file: '../partials/usuarios.html' },
-    clientes: { title: 'Clientes', file: '../partials/clientes.html' },
-    fabricantes: { title: 'Fabricantes', file: '../partials/fabricantes.html' },
-    referencias: { title: 'Referencias', file: '../partials/referencias.html' },
-    inventario: { title: 'Inventario', file: '../partials/inventario.html' },
-    ordenes: { title: 'Órdenes', file: '../partials/ordenes.html' },
-    reportes: { title: 'Reportes', file: '../partials/reportes.html' },
+    dashboard: { title: 'Dashboard', file: './partials/dashboard.html' },
+    usuarios: { title: 'Usuarios', file: './partials/usuarios.html' },
+    clientes: { title: 'Clientes', file: './partials/clientes.html' },
+    fabricantes: { title: 'Fabricantes', file: './partials/fabricantes.html' },
+    referencias: { title: 'Referencias', file: './partials/referencias.html' },
+    inventario: { title: 'Inventario', file: './partials/inventario.html' },
+    ordenes: { title: 'Órdenes', file: './partials/ordenes.html' },
+    reportes: { title: 'Reportes', file: './partials/reportes.html' },
   };
 
   // ---- helpers ----
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ---- eventos ----
+  //  eventos 
   navList.addEventListener('click', (e) => {
     const li = e.target.closest('.nav-item');
     if (!li) return;
@@ -121,5 +121,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const initModule = window.location.hash.replace('#','') || localStorage.getItem('playfix-last') || 'dashboard';
   loadModule(initModule, { push: false });
 });
-
 

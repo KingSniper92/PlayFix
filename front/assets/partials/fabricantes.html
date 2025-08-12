@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/fabricantes.css">
     <title>PlayFix Fabricantes</title>
 </head>
 <body>
 
-    <!-- fabricantes.html -->
-<section class="module">
-  <h2>Gestión de Fabricantes</h2>
-  <div class="actions">
-    <button>Agregar Fabricante</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar fabricante...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>País</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irán los fabricantes dinámicamente -->
-    </tbody>
-  </table>
-</section>
+  <section class="fabricantes">
+        <header class="fabricantes-header">
+            <h1 class="titulo-seccion">Gestión de Fabricantes</h1>
+        </header>
+
+        <!-- Formulario de creación de fabricante -->
+        <form class="form-fabricante" action="#" method="post">
+            <div class="form-grupo">
+                <label for="nombre_fabricante">Nombre del Fabricante:</label>
+                <input type="text" id="nombre_fabricante" name="nombre_fabricante" class="input-text" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="web_fabricante">Web del Fabricante:</label>
+                <input type="url" id="web_fabricante" name="web_fabricante" class="input-text" placeholder="https://ejemplo.com" required>
+            </div>
+
+            <div class="form-boton">
+                <button type="submit" class="btn-crear">Crear Fabricante</button>
+            </div>
+        </form>
+
+        <!-- Tabla de fabricantes -->
+        <div class="tabla-fabricantes-container">
+            <table class="tabla-fabricantes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Fabricante</th>
+                        <th>Web Fabricante</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo temporal (estos datos vendrán de la base de datos) -->
+                    <tr>
+                        <td>1</td>
+                        <td>TechCorp</td>
+                        <td><a href="https://techcorp.com" target="_blank">https://techcorp.com</a></td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Aquí se agregarán dinámicamente los registros desde la BD -->
+                </tbody>
+            </table>
+        </div>
+    </section>
     
 </body>
 </html>

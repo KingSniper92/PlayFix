@@ -3,33 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/inventario.css">
     <title>PlayFix Inventario</title>
 </head>
 <body>
 
-  <!-- inventario.html -->
-<section class="module">
-  <h2>Inventario</h2>
-  <div class="actions">
-    <button>Agregar Producto</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar producto...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Referencia</th>
-        <th>Cantidad</th>
-        <th>Ubicación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irá el inventario dinámicamente -->
-    </tbody>
-  </table>
-</section>
+  <body>
+
+    <section class="inventario">
+        <header class="inventario-header">
+            <h1 class="titulo-seccion">Gestión de Inventario</h1>
+        </header>
+
+        <!-- Formulario para crear parte -->
+        <form class="form-inventario" action="#" method="post">
+            <div class="form-grupo">
+                <label for="nombre_parte">Nombre de Parte:</label>
+                <input type="text" id="nombre_parte" name="nombre_parte" class="input-text" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="cantidad_parte">Cantidad:</label>
+                <input type="number" id="cantidad_parte" name="cantidad_parte" class="input-text" min="0" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="id_fabricante">ID Fabricante:</label>
+                <!-- Este select se llenará desde la BD -->
+                <select id="id_fabricante" name="id_fabricante" class="input-select" required>
+                    <option value="">Seleccione un fabricante</option>
+                    <!-- Ejemplo temporal -->
+                    <option value="1">Fabricante Ejemplo</option>
+                </select>
+            </div>
+
+            <div class="form-grupo">
+                <label for="id_referencia">ID Referencia:</label>
+                <!-- Este select se llenará desde la BD -->
+                <select id="id_referencia" name="id_referencia" class="input-select" required>
+                    <option value="">Seleccione una referencia</option>
+                    <!-- Ejemplo temporal -->
+                    <option value="1">Referencia Ejemplo</option>
+                </select>
+            </div>
+
+            <div class="form-boton">
+                <button type="submit" class="btn-crear">Crear Parte</button>
+            </div>
+        </form>
+
+        <!-- Tabla de inventario -->
+        <div class="tabla-inventario-container">
+            <table class="tabla-inventario">
+                <thead>
+                    <tr>
+                        <th>ID Parte</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Fabricante</th>
+                        <th>Referencia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo temporal -->
+                    <tr>
+                        <td>1</td>
+                        <td>Pantalla LCD</td>
+                        <td>10</td>
+                        <td>Samsung</td>
+                        <td>PDA-X100</td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Aquí se insertarán dinámicamente los datos desde la BD -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     
 </body>
 </html>

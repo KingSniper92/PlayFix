@@ -3,33 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayFix Clientes</title>
+    <link rel="stylesheet" href="./css/clientes.css">
+    <title>PlayFix - Gestión de Clientes</title>
 </head>
 <body>
 
-    <!-- clientes.html -->
-<section class="module">
-  <h2>Gestión de Clientes</h2>
-  <div class="actions">
-    <button>Agregar Cliente</button>
-    <button>Editar Seleccionado</button>
-    <button>Eliminar Seleccionado</button>
-    <input type="text" placeholder="Buscar cliente...">
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Teléfono</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí irán los clientes dinámicamente -->
-    </tbody>
-  </table>
+<section class="clientes">
+    <header class="clientes-header">
+        <h1 class="titulo-seccion">Gestión de Clientes</h1>
+    </header>
+
+    <div class="clientes-contenedor">
+        <!-- Formulario de creación de cliente -->
+        <form class="form-cliente" action="#" method="post">
+            <div class="form-grupo">
+                <label for="nombre_cliente">Nombre:</label>
+                <input type="text" id="nombre_cliente" name="nombre_cliente" class="input-text" placeholder="Nombre del cliente" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="direccion_cliente">Dirección:</label>
+                <input type="text" id="direccion_cliente" name="direccion_cliente" class="input-text" placeholder="Dirección completa" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="telefono_cliente">Teléfono:</label>
+                <input type="tel" id="telefono_cliente" name="telefono_cliente" class="input-text" placeholder="Ej: 3001234567" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="correo_cliente">Correo:</label>
+                <input type="email" id="correo_cliente" name="correo_cliente" class="input-text" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="form-boton">
+                <button type="submit" class="btn-crear">Crear Cliente</button>
+            </div>
+        </form>
+
+        <!-- Tabla de clientes -->
+        <div class="tabla-clientes-container">
+            <table class="tabla-clientes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Cliente</th>
+                        <th>Dirección Cliente</th>
+                        <th>Teléfono Cliente</th>
+                        <th>Correo Cliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo temporal (esto vendrá de la base de datos) -->
+                    <tr>
+                        <td>1</td>
+                        <td>Pedro Gómez</td>
+                        <td>Calle 123</td>
+                        <td>3001234567</td>
+                        <td>pedro@example.com</td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Aquí se agregarán dinámicamente los registros desde la BD -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 </section>
-    
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
