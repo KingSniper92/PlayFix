@@ -15,10 +15,10 @@
     </header>
 <main>
                                         
-       
+    
 <section class="login-form">
     <h1 class="titulo">Iniciar sesión</h1>
-    <form action="/login" method="post" class="login-box" autocomplete="on">
+    <form id="loginForm" method="post" class="login-box" autocomplete="on">
         <div class="input-box">
             <label for="username">Correo</label>
             <input id="username" name="username" type="email" placeholder="mail@playtechla.com" required autocomplete="username">
@@ -33,7 +33,16 @@
         
         <button type="submit" class="btn-login">Iniciar sesion</button>
     </form>
+
+
+    <p id="loginMessage" style="color:red; display:none;"></p>
+
+    <!-- Enlace al JS externo -->
+    <script src="./js/login.js"></script>
+
+
 </section>
+
 </main> 
        
     <footer class="footer-page">
