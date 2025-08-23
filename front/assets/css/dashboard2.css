@@ -39,6 +39,7 @@ body {
     color: #fff;
     box-shadow: var(--sombra);
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .bienvenida {

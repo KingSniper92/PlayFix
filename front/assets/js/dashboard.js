@@ -6,7 +6,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btnToggle');
   const btnToggleTop = document.getElementById('btnToggleTop');
+  const logoutBtn = document.querySelector('.btn-logout'); // 🔹 botón logout
+  const userBubble = document.querySelector('.user-bubble'); // 🔹 burbuja usuario
 
+  // =============================
+  // 🔒 Gestión de sesión
+  // =============================
+  const usuario = localStorage.getItem("usuarioLogueado");
+  if (!usuario) {
+    // Si no hay sesión, lo regresamos al login
+    window.location.href = "index.html";
+    return;
+  }
+
+  // 👤 Mostrar el nombre/usuario en la burbuja
+  const datosUsuario = JSON.parse(usuario);
+  if (userBubble) {
+    userBubble.textContent = datosUsuario.nombre
+      ? datosUsuario.nombre.charAt(0).toUpperCase()
+      : "PF";
+  }
+
+  // 🚪 Cerrar sesión
+  logoutBtn?.addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogueado");
+    sessionStorage.setItem("logoutMessage", "Sesión cerrada correctamente ✅");
+    window.location.href = "index.html";
+  });
+
+
+
+  
   // Mapa de módulos -> archivo parcial y título
   const modules = {
     dashboard: { title: 'Dashboard', file: './partials/dashboard.html' },
