@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btnToggle');
   const btnToggleTop = document.getElementById('btnToggleTop');
-  const logoutBtn = document.querySelector('.btn-logout'); // 🔹 botón logout
-  const userBubble = document.querySelector('.user-bubble'); // 🔹 burbuja usuario
+  const logoutBtn = document.querySelector('.btn-logout'); 
+  const userBubble = document.querySelector('.user-bubble');
 
   // =============================
   // 🔒 Gestión de sesión
@@ -69,6 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
 
+
+   // 🔹 helper para cargar dinámicamente el JS de cada módulo
+  function cargarScript(src) {
+    // eliminar si ya está cargado (evita duplicados)
+    const prev = document.querySelector(`script[src="${src}"]`);
+    if (prev) prev.remove();
+
+    const s = document.createElement('script');
+    s.src = src;
+    s.defer = true;
+    document.body.appendChild(s);
+  }
+
+
   async function loadModule(moduleId, options = { push: true }) {
     const mod = modules[moduleId] || modules.dashboard;
     setActiveNav(moduleId);
@@ -85,6 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Inserta contenido
       panels.innerHTML = html;
+
+
+      // ✅ cargar JS específico del módulo si existe
+      cargarScript(`./js/${moduleId}.js`);
+      
 
       // Accesibilidad: mover el foco al título del contenido
       const firstHeading = panels.querySelector('h1, h2, h3');

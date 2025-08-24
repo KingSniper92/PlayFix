@@ -1,15 +1,12 @@
-// ./js/usuarios.js
 (() => {
   const API_URL = "http://localhost:8080/api/usuarios";
 
-  // Valores EXACTOS según tu <select id="rol_usuario"> (value sin acentos)
   const rolNombreAId = {
     "Administrador": 1,
     "Tecnico": 2,
     "Logistica": 3,
     "Visitante": 4
   };
-  // Para mostrar y para setear el <select>. Usa los mismos values del HTML.
   const rolIdAValue = {
     1: "Administrador",
     2: "Tecnico",
@@ -17,18 +14,16 @@
     4: "Visitante"
   };
 
-  let usuariosInicializado = false;
-
+  // Función que inicializa TODO lo de usuarios
   function initUsuarios(root) {
-    if (usuariosInicializado) return;
-    usuariosInicializado = true;
-
     const form = root.querySelector(".form-usuario");
     const tbody = root.querySelector(".tabla-usuarios tbody");
     const btnCrear = form?.querySelector(".btn-crear");
     if (!form || !tbody || !btnCrear) return;
 
-    // ===== Listar =====
+    let editId = null;
+
+    // ==== LISTAR USUARIOS ====
     async function listar() {
       tbody.innerHTML = "";
       try {
@@ -36,7 +31,6 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
-        const frag = document.createDocumentFragment();
         data.forEach(u => {
           const id = u.idUsuario ?? u.id_usuario ?? "";
           const nombre = u.nombreUsuario ?? u.nombre_usuario ?? "";
@@ -50,48 +44,41 @@
             <td>${nombre}</td>
             <td>${correo}</td>
             <td>${rolTxt}</td>
-            <td class="acciones">
+            <td>
               <button class="btn-editar" data-id="${id}">Editar</button>
               <button class="btn-eliminar" data-id="${id}">Eliminar</button>
             </td>
           `;
-          frag.appendChild(tr);
+          tbody.appendChild(tr);
         });
-        tbody.appendChild(frag);
-      } catch (e) {
-        console.error("Error listando usuarios", e);
+      } catch (err) {
+        console.error("Error listando usuarios", err);
         tbody.innerHTML = `<tr><td colspan="5">Error cargando usuarios</td></tr>`;
       }
     }
 
-    let editId = null;
-
-    // ===== Crear / Actualizar =====
+    // ==== CREAR / ACTUALIZAR ====
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const nombre = form.querySelector("#nombre_usuario").value.trim();
       const correo = form.querySelector("#correo_usuario").value.trim();
       const clave  = form.querySelector("#clave_usuario").value;
-      const rolTxt = form.querySelector("#rol_usuario").value; // <-- ID CORRECTO
+      const rolTxt = form.querySelector("#rol_usuario").value;
       const idRol  = rolNombreAId[rolTxt] ?? 4;
 
-      // JSON en camelCase para Spring (tu modelo Usuario.java)
       const payload = { nombreUsuario: nombre, correoUsuario: correo, claveUsuario: clave, idRol };
 
       try {
         const url = editId ? `${API_URL}/${editId}` : API_URL;
         const method = editId ? "PUT" : "POST";
+
         const res = await fetch(url, {
           method,
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
 
-        if (res.status === 409) {
-          alert("El correo ya existe. Prueba con otro.");
-          return;
-        }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
         form.reset();
@@ -104,7 +91,7 @@
       }
     });
 
-    // ===== Editar / Eliminar =====
+    // ==== EDITAR / ELIMINAR ====
     tbody.addEventListener("click", async (e) => {
       const btn = e.target.closest("button");
       if (!btn) return;
@@ -113,40 +100,39 @@
 
       if (btn.classList.contains("btn-eliminar")) {
         if (!confirm("¿Eliminar este usuario?")) return;
-        const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-        if (res.ok) listar(); else alert("No se pudo eliminar");
+        await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+        await listar();
       }
 
       if (btn.classList.contains("btn-editar")) {
         const res = await fetch(`${API_URL}/${id}`);
-        if (!res.ok) { alert("No se pudo obtener el usuario"); return; }
+        if (!res.ok) return alert("No se pudo obtener el usuario");
         const u = await res.json();
 
-        form.querySelector("#nombre_usuario").value = u.nombreUsuario ?? u.nombre_usuario ?? "";
-        form.querySelector("#correo_usuario").value = u.correoUsuario ?? u.correo_usuario ?? "";
-        form.querySelector("#clave_usuario").value  = u.claveUsuario  ?? u.clave_usuario  ?? "";
-
-        const idRol = u.idRol ?? u.id_rol ?? 4;
-        form.querySelector("#rol_usuario").value = rolIdAValue[idRol] || "Visitante"; // <-- ID CORRECTO
+        form.querySelector("#nombre_usuario").value = u.nombreUsuario ?? "";
+        form.querySelector("#correo_usuario").value = u.correoUsuario ?? "";
+        form.querySelector("#clave_usuario").value  = u.claveUsuario  ?? "";
+        form.querySelector("#rol_usuario").value   = rolIdAValue[u.idRol] || "Visitante";
 
         editId = id;
         btnCrear.textContent = "Actualizar Usuario";
       }
     });
 
+    // Primera carga
     listar();
   }
 
-  // ===== Auto-init =====
+  // ====== DETECTAR CUANDO SE CARGA EL MODULO USUARIOS ======
   const panels = document.getElementById("panels");
   if (panels) {
-    const seccion = panels.querySelector(".usuarios");
-    if (seccion) initUsuarios(panels);
-
-    const mo = new MutationObserver(() => {
-      const s = panels.querySelector(".usuarios");
-      if (s) initUsuarios(panels);
+    const observer = new MutationObserver(() => {
+      const seccionUsuarios = panels.querySelector(".usuarios");
+      if (seccionUsuarios && !seccionUsuarios.dataset.iniciado) {
+        initUsuarios(seccionUsuarios);
+        seccionUsuarios.dataset.iniciado = "true";
+      }
     });
-    mo.observe(panels, { childList: true, subtree: true });
+    observer.observe(panels, { childList: true, subtree: true });
   }
 })();
