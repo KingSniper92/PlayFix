@@ -100,7 +100,7 @@
   });
 
   // ========================
-  // 3. Delegar eventos (Editar / Eliminar)
+  // 3. Delegación eventos (Editar / Eliminar)
   // ========================
   tablaBody.addEventListener("click", async (e) => {
     const btn = e.target.closest("button");

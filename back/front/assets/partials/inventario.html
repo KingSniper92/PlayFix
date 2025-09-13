@@ -7,36 +7,43 @@
     <title>PlayFix Inventario</title>
 </head>
 <body>
+
+  <body>
+
     <section class="inventario">
         <header class="inventario-header">
             <h1 class="titulo-seccion">Gestión de Inventario</h1>
         </header>
 
         <!-- Formulario para crear parte -->
-        <form class="form-inventario">
+        <form class="form-inventario" action="#" method="post">
             <div class="form-grupo">
-                <label for="nombreParte">Nombre de Parte:</label>
-                <input type="text" id="nombreParte" name="nombreParte" class="input-text" required>
+                <label for="nombre_parte">Nombre de Parte:</label>
+                <input type="text" id="nombre_parte" name="nombre_parte" class="input-text" required>
             </div>
 
             <div class="form-grupo">
-                <label for="cantidadParte">Cantidad:</label>
-                <input type="number" id="cantidadParte" name="cantidadParte" class="input-text" min="0" required>
+                <label for="cantidad_parte">Cantidad:</label>
+                <input type="number" id="cantidad_parte" name="cantidad_parte" class="input-text" min="0" required>
             </div>
 
             <div class="form-grupo">
-                <label for="idFabricante">Fabricante:</label>
+                <label for="id_fabricante">ID Fabricante:</label>
                 <!-- Este select se llenará desde la BD -->
-                <select id="idFabricante" name="idFabricante" class="input-select" required>
+                <select id="id_fabricante" name="id_fabricante" class="input-select" required>
                     <option value="">Seleccione un fabricante</option>
+                    <!-- Ejemplo temporal -->
+                    <option value="1">Fabricante Ejemplo</option>
                 </select>
             </div>
 
             <div class="form-grupo">
-                <label for="idReferencia">Referencia:</label>
+                <label for="id_referencia">ID Referencia:</label>
                 <!-- Este select se llenará desde la BD -->
-                <select id="idReferencia" name="idReferencia" class="input-select" required>
+                <select id="id_referencia" name="id_referencia" class="input-select" required>
                     <option value="">Seleccione una referencia</option>
+                    <!-- Ejemplo temporal -->
+                    <option value="1">Referencia Ejemplo</option>
                 </select>
             </div>
 
@@ -59,14 +66,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Ejemplo temporal -->
+                    <tr>
+                        <td>1</td>
+                        <td>Pantalla LCD</td>
+                        <td>10</td>
+                        <td>Samsung</td>
+                        <td>PDA-X100</td>
+                        <td class="acciones">
+                            <button class="btn-editar">Editar</button>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </td>
+                    </tr>
                     <!-- Aquí se insertarán dinámicamente los datos desde la BD -->
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- Script de inventario -->
-    <script src="./js/inventario.js" defer></script>
-    <script src="./js/cargarSelects.js" defer></script>
+    
 </body>
 </html>

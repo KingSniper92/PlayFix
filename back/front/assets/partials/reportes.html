@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reportes.css">
+    <title>PlayFix Reportes</title>
+</head>
+<body>
+
+  <body>
+
+    <section class="reportes-section">
+        <h2 class="titulo-reportes">Generar Reportes</h2>
+
+        <form class="form-reportes">
+            <!-- Fechas -->
+            <div class="campo-formulario">
+                <label for="fecha-inicio" class="label-form">Fecha inicio:</label>
+                <input type="date" id="fecha-inicio" name="fecha-inicio" class="input-form">
+            </div>
+
+            <div class="campo-formulario">
+                <label for="fecha-fin" class="label-form">Fecha fin:</label>
+                <input type="date" id="fecha-fin" name="fecha-fin" class="input-form">
+            </div>
+
+            <!-- Filtros -->
+            <div class="campo-formulario">
+                <label class="label-form">Filtrar por:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="filtro" value="numero-serie" class="checkbox-form"> Número de serie</label>
+                    <label><input type="checkbox" name="filtro" value="cliente" class="checkbox-form"> Cliente</label>
+                    <label><input type="checkbox" name="filtro" value="usuario" class="checkbox-form"> Usuario</label>
+                    <label><input type="checkbox" name="filtro" value="estado" class="checkbox-form"> Estado</label>
+                </div>
+            </div>
+
+            <!-- Botón -->
+            <div class="campo-formulario">
+                <button type="submit" class="btn-generar">Generar Reporte</button>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>

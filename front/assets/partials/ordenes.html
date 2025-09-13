@@ -11,63 +11,53 @@
   <section class="ordenes-reparacion">
     <h2 class="titulo-seccion">Órdenes de Reparación</h2>
 
-    <!-- Formulario de creación de orden -->
-    <form class="form-orden">
+    <!-- Formulario de creación/edición de orden -->
+    <form class="form-orden" id="form-orden">
         <div class="form-grupo">
-            <label for="numero-serie">Número de Serie:</label>
-            <input type="text" id="numero-serie" name="numero-serie" class="input-text">
+            <label for="numeroSerie">Número de Serie:</label>
+            <input type="text" id="numeroSerie" name="numeroSerie" class="input-text" required>
         </div>
 
+                                                
         <div class="form-grupo">
-            <label for="id-usuario">Usuario:</label>
-            <select id="id-usuario" name="id-usuario" class="input-select">
-                <option value="">Seleccione un usuario</option>
-                <!-- Aquí se llenará dinámicamente desde la base de datos -->
-            </select>
-        </div>
-
-        <div class="form-grupo">
-            <label for="id-cliente">Cliente:</label>
-            <select id="id-cliente" name="id-cliente" class="input-select">
+            <label for="idCliente">Cliente:</label>
+            <select id="idCliente" name="idCliente" class="input-select" required>
                 <option value="">Seleccione un cliente</option>
-                <!-- Aquí se llenará dinámicamente desde la base de datos -->
             </select>
         </div>
 
         <div class="form-grupo">
-            <label for="id-referencia">Referencia:</label>
-            <select id="id-referencia" name="id-referencia" class="input-select">
+            <label for="idReferencia">Referencia:</label>
+            <select id="idReferencia" name="idReferencia" class="input-select" required>
                 <option value="">Seleccione una referencia</option>
-                <!-- Aquí se llenará dinámicamente desde la base de datos -->
             </select>
         </div>
 
         <div class="form-grupo">
-            <label for="id-estado">Estado:</label>
-            <select id="id-estado" name="id-estado" class="input-select">
+            <label for="idEstado">Estado:</label>
+            <select id="idEstado" name="idEstado" class="input-select" required>
                 <option value="">Seleccione un estado</option>
-                <!-- Aquí se llenará dinámicamente desde la base de datos -->
             </select>
         </div>
 
         <div class="form-grupo">
-            <label for="fecha-ingreso">Fecha de Ingreso:</label>
-            <input type="date" id="fecha-ingreso" name="fecha-ingreso" class="input-date">
+            <label for="fechaIngreso">Fecha de Ingreso:</label>
+            <input type="date" id="fechaIngreso" name="fechaIngreso" class="input-date">
         </div>
 
         <div class="form-grupo">
-            <label for="fecha-cotizacion">Fecha de Cotización:</label>
-            <input type="date" id="fecha-cotizacion" name="fecha-cotizacion" class="input-date">
+            <label for="fechaCotizacion">Fecha de Cotización:</label>
+            <input type="date" id="fechaCotizacion" name="fechaCotizacion" class="input-date">
         </div>
 
         <div class="form-grupo">
-            <label for="fecha-aprobacion">Fecha de Aprobación:</label>
-            <input type="date" id="fecha-aprobacion" name="fecha-aprobacion" class="input-date">
+            <label for="fechaAprobacion">Fecha de Aprobación:</label>
+            <input type="date" id="fechaAprobacion" name="fechaAprobacion" class="input-date">
         </div>
 
         <div class="form-grupo">
-            <label for="fecha-finalizacion">Fecha de Finalización:</label>
-            <input type="date" id="fecha-finalizacion" name="fecha-finalizacion" class="input-date">
+            <label for="fechaFinalizacion">Fecha de Finalización:</label>
+            <input type="date" id="fechaFinalizacion" name="fechaFinalizacion" class="input-date">
         </div>
 
         <div class="form-grupo">
@@ -87,40 +77,26 @@
                 <tr>
                     <th>ID Orden</th>
                     <th>Número Serie</th>
-                    <th>ID Usuario</th>
-                    <th>ID Cliente</th>
-                    <th>ID Referencia</th>
-                    <th>ID Estado</th>
+                    <th>Usuario</th>
+                    <th>Cliente</th>
+                    <th>Referencia</th>
+                    <th>Estado</th>
                     <th>Fecha Ingreso</th>
                     <th>Fecha Cotización</th>
                     <th>Fecha Aprobación</th>
                     <th>Fecha Finalización</th>
+                    <th>Observaciones</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Ejemplo temporal -->
-                <tr>
-                    <td>1</td>
-                    <td>ABC12345</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>En Proceso</td>
-                    <td>2025-08-11</td>
-                    <td>2025-08-15</td>
-                    <td>2025-08-20</td>
-                    <td>2025-08-25</td>
-                    <td>
-                        <button class="btn-editar">Editar</button>
-                        <button class="btn-eliminar">Eliminar</button>
-                    </td>
-                </tr>
-                <!-- Aquí se insertarán dinámicamente las órdenes desde la base de datos -->
+            <tbody id="tabla-ordenes-body">
+                <!-- Se insertarán dinámicamente las órdenes -->
             </tbody>
         </table>
     </div>
 </section>
     
+<!-- Script de manejo de órdenes -->
+<script src="./js/ordenes.js"></script>
 </body>
 </html>
